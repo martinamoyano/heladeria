@@ -2,7 +2,6 @@ body {
   background-color: #FFF5E7;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
 }
 
 /* Estilos para el header */
@@ -34,9 +33,10 @@ nav {
 .navbar-item a {
   text-decoration: none;
   color: #c96e86;
-  padding: 5px 10px; /* Ajusta el espaciado según tu preferencia */
-  background-color: #e0b7b7; /* Color de fondo de los botones */
+  padding: 5px 10px; 
+  background-color: #e0b7b7; 
   border-radius: 5px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .navbar-item a:hover {
@@ -51,7 +51,7 @@ nav {
 
 #logo {
   max-width: 100px;
-  margin-right: 10px; /* Espacio entre el logo y los botones */
+  margin-right: 10px; 
 }
 
 .pedido-button {
@@ -68,62 +68,55 @@ nav {
 }
 
 
-
-
-/* Estilo para las tarjetas de producto */
 #product-card {
   background-color: #FFF5E7;
-  border: 1px solid #ddd; /* Agrega un borde suave */
-  border-radius: 8px; /* Añade bordes redondeados */
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
   padding: 16px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Agrega una sombra suave */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
   text-align: center;
-  margin: 10px; /* Espacio entre las tarjetas */
-  width: 250px; /* Establece un ancho fijo para todas las tarjetas */
+  margin: 10px;
+  width: 250px; 
   display: inline-block;
-  vertical-align: top; /* Para alinear las tarjetas en la parte superior */
+  vertical-align: top; 
 }
 
-/* Estilo para el título de la tarjeta */
+
 #product-card h3 {
   font-size: 18px;
   margin: 8px 0;
 }
 
-/* Estilo para la imagen de la tarjeta */
+
 #product-card img {
   max-width: 100%;
   height: auto;
   margin: 8px 0;
 }
 
-/* Estilo para la descripción de la tarjeta */
 #product-card p {
   font-size: 14px;
 }
 
 
-/* Estilo general para las secciones */
+
 section {
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
   text-align: center;
-  margin-bottom: 40px; /* Espacio entre secciones */
+  margin-bottom: 40px;
 }
 
-/* Estilo específico para las secciones de inicio y contacto */
+
 #inicio, #contacto {
-  background-color: #f0f0f0; /* Color de fondo para estas secciones */
+  background-color: #f0f0f0; 
 }
 
-/* Estilo específico para la sección de sabores */
 #sabores {
-  background-color: #e0e0e0; /* Color de fondo para la sección de sabores */
+  background-color: #e0e0e0; 
 }
 
-/* Estilo específico para la sección de quienes somos */
 #quienes-somos {
-  background-color: #d0d0d0; /* Color de fondo para la sección de quienes somos */
+  background-color: #d0d0d0;
 }
-

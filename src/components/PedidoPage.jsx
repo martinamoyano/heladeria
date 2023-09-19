@@ -1,8 +1,6 @@
-// PedidoPage.jsx
 import React from 'react';
 
 function PedidoPage() {
-  // Contenido de la página de pedido
   return (
     <div>
       {
@@ -11,6 +9,6 @@ function PedidoPage() {
   );
 }
 
-export default PedidoPage; // Exporta el componente predeterminado
+export default PedidoPage; 
 
 
