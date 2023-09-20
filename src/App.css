@@ -2,7 +2,8 @@ body {
   background-color: #FFF5E7;
   margin: 0;
   padding: 0;
-  font-family: 'Exo 2', sans-serif;
+  font-family: 'Dangrek', cursive;
+  color: #c96e86;
 }
 
 /* Estilos para el header */
@@ -34,9 +35,11 @@ nav {
 .navbar-item a {
   text-decoration: none;
   color: #c96e86;
-  padding: 5px 10px; 
+  padding: 5px 15px; 
   background-color: #e0b7b7; 
   border-radius: 5px;
+  font-size: 20px;
+  font-family: 'Dangrek', cursive;
 }
 
 .navbar-item a:hover {
@@ -50,17 +53,20 @@ nav {
 }
 
 #logo {
-  max-width: 100px;
+  width: 150px;
   margin-right: 10px; 
 }
 
 .pedido-button {
   background-color: #c96e86;
   color: #ffd0d0;
-  padding: 5px 10px;
+  padding: 5px 15px;
   border-radius: 5px;
   text-decoration: none;
+  font-size: 20px;
+  font-family: 'Dangrek', cursive;
 }
+
 
 .pedido-button:hover {
   color: #c96e86;
@@ -70,11 +76,12 @@ nav {
 
 #product-card {
   background-color: #FFF5E7;
-  border: 1px solid #ddd; 
-  border-radius: 8px; 
+  border: none;
+  border-radius: 10px; 
   padding: 16px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
   text-align: center;
+  font-family: 'Dangrek', cursive;
   margin: 10px;
   width: 250px; 
   display: inline-block;
@@ -83,7 +90,7 @@ nav {
 
 
 #product-card h3 {
-  font-size: 18px;
+  font-size: 20px;
   margin: 8px 0;
 }
 
@@ -95,10 +102,8 @@ nav {
 }
 
 #product-card p {
-  font-size: 14px;
+  font-size: 16px;
 }
-
-
 
 section {
   width: 100%;
@@ -108,15 +113,35 @@ section {
   margin-bottom: 40px;
 }
 
-
-#inicio, #contacto {
-  background-color: #f0f0f0; 
-}
-
 #sabores {
-  background-color: #e0e0e0; 
+  background-color: #e0b7b7;
 }
 
-#quienes-somos {
-  background-color: #d0d0d0;
+#searchbar-msj {
+  color: #c96e86;
+  font-size: 20px;
 }
+
+.quienes-somos-section {
+  display: grid;
+  grid-template-columns: auto 1fr; 
+  align-items: center; 
+  gap: 20px; 
+}
+
+.quienes-somos-image {
+  max-width: 100%; 
+  height: auto;
+}
+
+.carousel-container {
+  max-width: 600px; 
+  margin: 0 auto; 
+}
+
+.carousel-container img {
+  max-width: 100%; 
+}
+
+
+

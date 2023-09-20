@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -23,9 +22,9 @@ function NavBar() {
         <li className="navbar-item">
           <a href="#contacto">Contacto</a>
         </li>
-        <li className="navbar-item">
+        <li>
           <Link to="/hace-tu-pedido" className="pedido-button">
-            Haz tu Pedido
+            Hace tu Pedido
           </Link>
         </li>
       </ul>
@@ -35,5 +34,3 @@ function NavBar() {
 
 
 export default NavBar;
-
-

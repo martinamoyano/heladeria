@@ -1,0 +1,56 @@
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #e0b7b7;
+    color: #c96e86;
+    border-radius: 10px;
+  }
+  
+  .container h1 {
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(192, 110, 134, 0.2); /* Color con opacidad baja */
+    border: none;
+    border-radius: 5px;
+    color: #c96e86;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  
+  textarea {
+    height: 150px; /* Ajusta la altura del campo de mensaje */
+  }
+  
+  input[type="submit"] {
+    background-color: #c96e86;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #a05168;
+  }
+  
+  /* Estilos adicionales según tus preferencias */
+  
