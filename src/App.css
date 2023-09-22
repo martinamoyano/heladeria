@@ -2,22 +2,21 @@ body {
   background-color: #FFF5E7;
   margin: 0;
   padding: 0;
-  font-family: 'Dangrek', cursive;
+  font-family: 'Mooli', sans-serif;
   color: #c96e86;
 }
 
 /* Estilos para el header */
 header {
-  background-color: #e0b7b7;
   padding: 0;
   margin: 0;
 }
 
 /* estilos para el navbar */
 nav {
-  background-color: #e0b7b7;
+  background-color: #FFF5E7;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   padding: 10px;
 }
@@ -34,17 +33,16 @@ nav {
 
 .navbar-item a {
   text-decoration: none;
-  color: #c96e86;
+  color: #d1899c;
   padding: 5px 15px; 
-  background-color: #e0b7b7; 
   border-radius: 5px;
-  font-size: 20px;
-  font-family: 'Dangrek', cursive;
+  font-size: 18px;
+  transition: color 0.3s;
+  font-weight: bold;
 }
 
 .navbar-item a:hover {
-  color: #ffd0d0;
-  background-color: #c96e86;
+  color: #c24365;
 }
 
 #logo-container {
@@ -58,52 +56,20 @@ nav {
 }
 
 .pedido-button {
-  background-color: #c96e86;
-  color: #ffd0d0;
-  padding: 5px 15px;
+  background-color: #d1899c;
+  color: #FFF5E7;
+  padding: 8px 30px;
   border-radius: 5px;
   text-decoration: none;
-  font-size: 20px;
-  font-family: 'Dangrek', cursive;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s;
 }
-
 
 .pedido-button:hover {
-  color: #c96e86;
-  background-color: #ffd0d0;
+  background-color: #d1899cb6;
 }
 
-
-#product-card {
-  background-color: #FFF5E7;
-  border: none;
-  border-radius: 10px; 
-  padding: 16px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
-  text-align: center;
-  font-family: 'Dangrek', cursive;
-  margin: 10px;
-  width: 250px; 
-  display: inline-block;
-  vertical-align: top; 
-}
-
-
-#product-card h3 {
-  font-size: 20px;
-  margin: 8px 0;
-}
-
-
-#product-card img {
-  max-width: 100%;
-  height: auto;
-  margin: 8px 0;
-}
-
-#product-card p {
-  font-size: 16px;
-}
 
 section {
   width: 100%;
@@ -117,10 +83,7 @@ section {
   background-color: #e0b7b7;
 }
 
-#searchbar-msj {
-  color: #c96e86;
-  font-size: 20px;
-}
+
 
 .quienes-somos-section {
   display: grid;
@@ -132,15 +95,6 @@ section {
 .quienes-somos-image {
   max-width: 100%; 
   height: auto;
-}
-
-.carousel-container {
-  max-width: 600px; 
-  margin: 0 auto; 
-}
-
-.carousel-container img {
-  max-width: 100%; 
 }
 
 

@@ -4,8 +4,8 @@ import SearchBar from './components/SearchBar';
 import ProductCard from './components/ProductCard';
 import NavBar from './components/NavBar';
 import ContactForm from './components/ContactForm';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import Slider from './components/Slider';
+
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -30,26 +30,11 @@ function App() {
   return (
     <>
       <header>
-        <NavBar />
+        <NavBar/>
       </header>
       <main>
         <section id="inicio">
-          <div className="carousel-container">
-            <Carousel>
-              <div>
-                <img src="src/assets/slide1.jpg" alt="Imagen 1" />
-              </div>
-              <div>
-                <img src="src/assets/slide2.avif" alt="Imagen 2" />
-              </div>
-              <div>
-                <img src="src/assets/slide3.png" alt="Imagen 3" />
-              </div>
-              <div>
-                <img src="src/assets/slide4.webp" alt="Imagen 4" />
-              </div>
-            </Carousel>
-          </div>
+          <Slider/>
         </section>
 
         <section id="sabores">
