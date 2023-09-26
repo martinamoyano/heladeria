@@ -1,22 +1,22 @@
-/* Estilo del contenedor principal */
+
 .search-bar-container {
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 10px; /* Espaciado interno */
+    border-radius: 10px; 
+    padding: 10px; 
     width: 300px;
   }
   
-  /* Estilo del input de búsqueda */
+  
   .search-input {
-    border: none; /* Elimina el borde predeterminado */
-    outline: none; /* Elimina el resaltado en enfoque */
-    width: 200px; /* Ocupa todo el ancho disponible */
-    padding: 5px; /* Espaciado interno */
-    border-radius: 10px; /* Bordes redondeados */
+    border: none;
+    outline: none; 
+    width: 200px; 
+    padding: 5px; 
+    border-radius: 10px; 
   }
 
   #searchbar-msj {
     color: #c96e86;
     font-size: 20px;
-    margin-bottom: 5px; /* Espaciado inferior */
+    margin-bottom: 5px; 
   }
   

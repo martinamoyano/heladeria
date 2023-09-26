@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './PedidoPage.css'; // Importa un archivo CSS para los estilos
 
 function PedidoPage() {
     const [nombre, setNombre] = useState('');
@@ -9,7 +10,6 @@ function PedidoPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        //Podes mostrar un mensaje de confirmación al usuario
     };
 
     return (

@@ -8,10 +8,7 @@ function Slider() {
     <div className="carousel-container">
       <Carousel autoPlay={true} interval={4000} transitionTime={1000} infiniteLoop={true} showThumbs={false} showStatus={false}>
         <div>
-          <img src="src\assets\slide1.jpg" alt="Imagen 1" />
-        </div>
-        <div>
-          <img src="src\assets\slide2.avif" alt="Imagen 2" />
+          <img src="src\assets\slide1.png" alt="Imagen 1" />
         </div>
         <div>
           <img src="src\assets\slide3.png" alt="Imagen 3" />

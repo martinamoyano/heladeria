@@ -1,5 +1,5 @@
 .container {
-    max-width: 400px;
+    max-width: 90%;
     margin: 0 auto;
     padding: 20px;
     background-color: #e0b7b7;
@@ -26,7 +26,7 @@
   textarea {
     width: 100%;
     padding: 10px;
-    background-color: rgba(192, 110, 134, 0.2); /* Color con opacidad baja */
+    background-color: rgba(192, 110, 134, 0.2);
     border: none;
     border-radius: 5px;
     color: #c96e86;
@@ -35,7 +35,7 @@
   }
   
   textarea {
-    height: 150px; /* Ajusta la altura del campo de mensaje */
+    height: 150px; 
   }
   
   input[type="submit"] {
@@ -52,5 +52,4 @@
     background-color: #a05168;
   }
   
-  /* Estilos adicionales según tus preferencias */
   
