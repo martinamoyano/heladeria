@@ -16,7 +16,7 @@ function ContactForm() {
     return (
         <div className="container">
             <h1>¡Contáctanos!</h1>
-            <form onSubmit={handleSubmit} action="#" method="post">
+            <form onSubmit={handleSubmit} action="martina.moyano2003@gmail.com" method="post">
                 <div className="form-group">
                     <label htmlFor="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" required value=
@@ -39,3 +39,5 @@ function ContactForm() {
         </div>
     );
 }
+
+export default ContactForm;
