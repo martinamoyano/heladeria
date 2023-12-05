@@ -70,19 +70,23 @@ class HeladeriaModel {
 
   static async getByType(tipo) {
     try {
-      const [rows, fields] = await connection.query(`
-      SELECT productos.*
-      FROM productos
-      JOIN productos_tipo_helado ON productos.id = productos_tipo_helado.id
-      JOIN tipo_helado ON productos_tipo_helado.id_tipo = tipo_helado.id_tipo
-      WHERE tipo_helado.tipo = ?;`, 
-      [tipo]);
+      const [rows, fields] = await connection.query(
+        `
+        SELECT productos.*
+        FROM productos
+        JOIN productos_tipo_helado ON productos.id = productos_tipo_helado.id
+        JOIN tipo_helado ON productos_tipo_helado.id_tipo = tipo_helado.id_tipo
+        WHERE tipo_helado.tipo = ?
+        `,
+        [tipo]  // <- Pasa el valor de tipo como parámetro aquí
+      );
       return rows;
-    } catch(error) {
+    } catch (error) {
       console.error("Error al obtener productos por tipo:", error);
       throw { status: 500, mensaje: "Error del servidor" };
     }
   }
+  
 }
 
 export default HeladeriaModel;

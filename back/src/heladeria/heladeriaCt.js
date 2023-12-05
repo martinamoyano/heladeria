@@ -50,6 +50,7 @@ export class HeladeriaCt {
     const { tipo } = req.params;
     try {
       const productosPorTipo = await HeladeriaModel.getByType(tipo);
+      console.log(productosPorTipo);
       res.json(productosPorTipo);
     } catch (error) {
       res.status(error.status || 500).send(error.mensaje || "Error del servidor");
