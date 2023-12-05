@@ -1,10 +1,10 @@
 import { Router } from "express";
 export const router = Router();
 
-import { HeladeriaCt } from "./heladeriaCt";
+import { HeladeriaCt } from "./heladeriaCt.js";
 
 //para traer todos los productos
-router.get("/productos", HeladeriaCt.getAll);
+router.get("/", HeladeriaCt.getAll);
 
 //para crear
 router.post("/productos", HeladeriaCt.addOne);

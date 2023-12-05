@@ -1,5 +1,5 @@
 import express from "express";
-import { router as heladeriaRt } from "./src/heladeria/heladeriaRt";
+import { router as heladeriaRt } from "./src/heladeria/heladeriaRt.js";
   
 const app = express();
 const port = 3000; 

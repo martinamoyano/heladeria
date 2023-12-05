@@ -1,4 +1,4 @@
-import HeladeriaModel from "./heladeriaMd";
+import HeladeriaModel from "./heladeriaMd.js";
 
 export class HeladeriaCt {
   // para traer todos los productos
@@ -56,3 +56,4 @@ export class HeladeriaCt {
     }
   }
 }
+
