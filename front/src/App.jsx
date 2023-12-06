@@ -16,16 +16,17 @@ function App() {
   };
 
   useEffect(() => {
-    fetch('https://api.mockfly.dev/mocks/a63eaabf-94e4-4feb-aa29-c3891e23efc0/flavours')
+    fetch('http://localhost:3000/heladeria/')
       .then((res) => res.json())
       .then((data) => {
-        const flavors = data.flavours;
-        setProducts(flavors);
+        const productos = data;
+        setProducts(productos);
       })
       .catch((error) => {
         console.error('Error al obtener los datos de la API:', error);
       });
   }, []);
+  
 
   return (
     <>
@@ -40,7 +41,7 @@ function App() {
         <section id="sabores">
           <SearchBar onChangeText={handleChangeText} />
           {products
-            .filter((prod) => prod.title.toLowerCase().includes(searchText))
+            .filter((prod) => prod.nombre_producto.toLowerCase().includes(searchText))
             .map((p) => (
               <ProductCard p={p} key={p.id} />
             ))}
