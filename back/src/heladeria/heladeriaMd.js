@@ -11,63 +11,64 @@ class HeladeriaModel {
     }
   }
 
-  static async addOne(nombre_producto, descripcion) {
+  static async addOne(nombre_producto, descripcion, tipo) {
     try {
-      await connection.query(`
-        INSERT INTO productos (nombre_producto, descripcion)
-        VALUES (?, ?)`, 
-        [nombre_producto, descripcion]);
-      return { nombre_producto, descripcion };
-    } catch(error) {
-      console.error("Error al crear producto:", error);
-      throw { status: 500, mensaje: "Error del servidor" };
-    }
-  }
-  
-  static async updateOne(nombre_producto, descripcion) {
-    try {
-      const result = await connection.query(`
-        UPDATE productos 
-        SET descripcion = ? 
-        WHERE nombre_producto = ?`, 
-        [descripcion, nombre_producto]);
-      
-      if (result.affectedRows > 0) {
-        const updatedProduct = await connection.query(
-          `SELECT * 
-           FROM productos 
-           WHERE nombre_producto = ?`,
-          [nombre_producto]
-        );
-  
-        if (updatedProduct.length > 0) {
-          const updatedProductData = updatedProduct[0];
-          return updatedProductData;
-        }
-      } throw { status: 404, mensaje: "Producto no encontrado" };
-    } catch(error) {
-      console.error("Error al actualizar producto:", error);
-      throw { status: 500, mensaje: "Error del servidor" };
-    }
-  }
-  
-  static async deleteOne(nombre_producto) {
-    try {
-      const result = await connection.query(`
-      DELETE FROM productos 
-      WHERE nombre_producto = ?`, 
-      [nombre_producto]);
-      if (result.affectedRows > 0) {
-        return "Producto eliminado";
-      } else {
-        throw { status: 404, mensaje: "Producto no encontrado" };
-      }
-    } catch(error) {
-      console.error("Error al eliminar:", error);
-      throw { status: 500, mensaje: "Error del servidor" };
+      const [result] = await connection.query(
+        'INSERT INTO productos (nombre_producto, descripcion) VALUES (?, ?)',
+        [nombre_producto, descripcion]
+      );
+      const lastProductId = result.insertId;
+        await connection.query(
+        'INSERT INTO productos_tipo_helado (id, id_tipo) SELECT ?, id_tipo FROM tipo_helado WHERE tipo = ?',
+        [lastProductId, tipo]
+      );
+      return { nombre_producto, descripcion, tipo };
+    } catch (error) {
+      console.error('Error al crear producto:', error);
+      throw { status: 500, mensaje: 'Error del servidor' };
     }
   }
 
+  static async updateOne(nombre_producto, nueva_descripcion) {
+    try {
+      const [verificarProducto] = await connection.query('SELECT * FROM productos WHERE nombre_producto = ?', [nombre_producto]);
+      if (verificarProducto.length === 0) {
+        throw { status: 404, mensaje: "Producto no encontrado" };
+      }
+      const updateQuery = `
+        UPDATE productos
+        SET descripcion = ?
+        WHERE nombre_producto = ?`;
+
+      await connection.query(updateQuery, [nueva_descripcion, nombre_producto]);
+
+      const [productoActualizado] = await connection.query('SELECT * FROM productos WHERE nombre_producto = ?', [nombre_producto]);
+
+      return productoActualizado[0];
+    } catch (error) {
+      console.error('Error al actualizar producto:', error);
+      } 
+      throw { status: 500, mensaje: 'Error del servidor' };
+      }
+
+  static async deleteOne(nombre_producto) {
+    try {
+      const result = await connection.query(`
+        DELETE FROM productos 
+        WHERE nombre_producto = ?`, 
+        [nombre_producto]);
+  
+      if (result.affectedRows > 0) {
+        return "Producto eliminado";
+      } else {
+        return "Producto no encontrado";
+      }
+    } catch (error) {
+      console.error("Error al eliminar", error);
+      throw { status: 500, mensaje: "Error del servidor" };
+    }
+  }
+  
   static async getByType(tipo) {
     try {
       const [rows, fields] = await connection.query(
@@ -78,7 +79,7 @@ class HeladeriaModel {
         JOIN tipo_helado ON productos_tipo_helado.id_tipo = tipo_helado.id_tipo
         WHERE tipo_helado.tipo = ?
         `,
-        [tipo]  // <- Pasa el valor de tipo como parámetro aquí
+        [tipo]  
       );
       return rows;
     } catch (error) {

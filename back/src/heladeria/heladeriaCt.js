@@ -13,14 +13,15 @@ export class HeladeriaCt {
 
   // para crear
   static async addOne(req, res) {
-    const { nombre_producto, descripcion } = req.body;
+    const { nombre_producto, descripcion, tipo } = req.body;
     try {
-      const nuevoProducto = await HeladeriaModel.addOne(nombre_producto, descripcion);
+      const nuevoProducto = await HeladeriaModel.addOne(nombre_producto, descripcion, tipo);
       res.status(201).json(nuevoProducto);
     } catch (error) {
       res.status(error.status || 500).send(error.mensaje || "Error del servidor");
     }
   }
+  
 
   // para actualizar
   static async updateOne(req, res) {
@@ -35,22 +36,22 @@ export class HeladeriaCt {
   }
 
   // para eliminar
-  static async deleteOne(req, res) {
-    const { nombre_producto } = req.params;
-    try {
-      const mensaje = await HeladeriaModel.deleteOne(nombre_producto);
-      res.send(mensaje);
-    } catch (error) {
-      res.status(error.status || 500).send(error.mensaje || "Error del servidor");
-    }
+static async deleteOne(req, res) {
+  const { nombre_producto } = req.params;
+  try {
+    const mensaje = await HeladeriaModel.deleteOne(nombre_producto);
+    res.json({ mensaje });  // Envía un objeto JSON como respuesta
+  } catch (error) {
+    res.status(error.status || 500).json({ mensaje: error.mensaje || "Error del servidor" });
   }
+}
+
 
   // por tipo
   static async getByType(req, res) {
     const { tipo } = req.params;
     try {
       const productosPorTipo = await HeladeriaModel.getByType(tipo);
-      console.log(productosPorTipo);
       res.json(productosPorTipo);
     } catch (error) {
       res.status(error.status || 500).send(error.mensaje || "Error del servidor");
