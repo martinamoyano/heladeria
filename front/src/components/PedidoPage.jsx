@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './PedidoPage.css'; // Importa un archivo CSS para los estilos
+import './PedidoPage.css';
 
 function PedidoPage() {
     const [nombre, setNombre] = useState('');

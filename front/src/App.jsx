@@ -10,9 +10,76 @@ import Slider from './components/Slider';
 function App() {
   const [products, setProducts] = useState([]);
   const [searchText, setSearchText] = useState('');
+  const [addFormVisible, setAddFormVisible] = useState(false);
 
   const handleChangeText = (e) => {
     setSearchText(e.target.value.toLowerCase());
+  };
+
+  const handleDelete = (productName) => {
+    fetch(`http://localhost:3000/heladeria/productos/${productName}`, {
+      method: 'DELETE',
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts((prevProducts) => prevProducts.filter((p) => p.nombre_producto !== productName));
+      })
+      .catch((error) => {
+        console.error('Error al eliminar el producto:', error);
+      });
+  };
+  
+  const handleUpdate = (productName, newDescription) => {
+    fetch(`http://localhost:3000/heladeria/productos/${productName}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ descripcion: newDescription }),
+    })
+      .then((res) => res.json())
+      .then((updatedProduct) => {
+        setProducts((prevProducts) =>
+          prevProducts.map((p) =>
+            p.nombre_producto === updatedProduct.nombre_producto ? updatedProduct : p
+          )
+        );
+      })
+      .catch((error) => {
+        console.error('Error al actualizar el producto:', error);
+      });
+  };
+
+  const handleAdd = () => {
+    const nombreProducto = document.getElementById('nombreProducto').value;
+    const descripcion = document.getElementById('descripcion').value;
+    const tipo = document.getElementById('tipo').value;
+  
+    const newProduct = {
+      nombre_producto: nombreProducto,
+      descripcion: descripcion,
+      tipo: tipo,
+    };
+  
+    fetch('http://localhost:3000/heladeria/productos', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newProduct),
+    })
+      .then((res) => res.json())
+      .then((addedProduct) => {
+        setProducts((prevProducts) => [...prevProducts, addedProduct]);
+      })
+      .catch((error) => {
+        console.error('Error al agregar el producto:', error);
+      });
+  };
+  
+
+  const handleAddButtonClick = () => {
+    setAddFormVisible(true);
   };
 
   useEffect(() => {
@@ -43,8 +110,28 @@ function App() {
           {products
             .filter((prod) => prod.nombre_producto.toLowerCase().includes(searchText))
             .map((p) => (
-              <ProductCard p={p} key={p.id} />
+              <ProductCard
+                key={p.id}
+                p={p}
+                onDelete={(productName) => handleDelete(productName)}
+                onUpdate={(productName, newDescription) => handleUpdate(productName, newDescription)}
+              />
             ))}
+          <button onClick={handleAddButtonClick}>Añadir Producto</button>
+          {addFormVisible && (
+          <div>
+            <input type="text" id="nombreProducto" placeholder="Nombre del producto" />
+            <input type="text" id="descripcion" placeholder="Descripción" />
+            <input type="text" id="tipo" placeholder="Tipo" />
+            <button onClick={() => handleAdd({
+              nombre_producto: document.getElementById('nombreProducto').value,
+              descripcion: document.getElementById('descripcion').value,
+              tipo: document.getElementById('tipo').value,
+            })}>
+              Enviar
+            </button>
+          </div>
+          )}
         </section>
 
         <section id="quienes-somos" className="quienes-somos-section">
