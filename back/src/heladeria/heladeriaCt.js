@@ -22,7 +22,6 @@ export class HeladeriaCt {
     }
   }
   
-
   // para actualizar
   static async updateOne(req, res) {
     const { nombre_producto } = req.params;
@@ -34,7 +33,7 @@ export class HeladeriaCt {
       res.status(error.status || 500).send(error.mensaje || "Error del servidor");
     }
   }
-
+  
   // para eliminar
 static async deleteOne(req, res) {
   const { nombre_producto } = req.params;
